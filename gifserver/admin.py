@@ -21,6 +21,7 @@ class GifAdmin(admin.ModelAdmin):
     list_display = ('gifsite', 'name', 'url', 'date_added', 'active')
     list_filter = ('name',)
 
+
 # slap those new fields in there
 admin.site.register(Gifsite, GifsiteAdmin)
 admin.site.register(Gif, GifAdmin)
