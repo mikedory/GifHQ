@@ -1,0 +1,22 @@
+
+<h2>Sites</h2>
+<ul>
+    {% for gifsite in gifsites %}
+    <ul>
+        <li>{{ gifsite.name }}</li>
+        <li>{{ gifsite.url }}</li>
+    </ul>
+    {% endfor %}
+</ul>
+
+<h2>Gifs</h2>
+<ul>
+    {% for gif in gifs %}
+    <li>{{ gif.name }}</li>
+    <ul>
+        <li>{{ gif.gifsite }}</li>
+        <li>{{ gif.name }}</li>
+        <li>{{ gif.url }}</li>
+    </ul>
+    {% endfor %}
+</ul>
