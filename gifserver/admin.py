@@ -11,6 +11,7 @@ class GifsiteAdmin(admin.ModelAdmin):
     list_display = ('name', 'url', 'date_added', 'active')
     list_filter = ('name',)
 
+
 # add some extra fields for gifs too
 class GifAdmin(admin.ModelAdmin):
     fieldsets = [
