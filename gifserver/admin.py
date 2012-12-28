@@ -5,9 +5,21 @@ from django.contrib import admin
 # adding some custom field handling for the admin panel
 class GifsiteAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['name', 'url']}),
+        (None,               {'fields': ['name', 'url', 'active']}),
         ('Date information', {'fields': ['date_added'], 'classes': ['collapse']}),
     ]
+    list_display = ('name', 'url', 'date_added', 'active')
+    list_filter = ('name',)
+
+
+class GifAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['name', 'url', 'active']}),
+        ('Date information', {'fields': ['date_added'], 'classes': ['collapse']}),
+    ]
+    list_display = ('gifsite', 'name', 'url', 'date_added', 'active')
+    list_filter = ('name',)
+
 
 admin.site.register(Gifsite, GifsiteAdmin)
-admin.site.register(Gif)
+admin.site.register(Gif, GifAdmin)
