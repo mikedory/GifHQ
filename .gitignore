@@ -1,5 +1,9 @@
 .DS_Store
 *.pyc
 
+# venv things
+bin
+venv
+
 # the sqlite database file
 db.sqlite
