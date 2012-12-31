@@ -7,7 +7,7 @@ class Gifsite(models.Model):
     url = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     date_added = models.DateTimeField('date added')
-    active = models.NullBooleanField()
+    active = models.BooleanField()
 
     def __unicode__(self):
         return self.name
