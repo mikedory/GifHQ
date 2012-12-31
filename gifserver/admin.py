@@ -8,17 +8,17 @@ class GifsiteAdmin(admin.ModelAdmin):
         (None,               {'fields': ['name', 'url', 'active']}),
         ('Date information', {'fields': ['date_added'], 'classes': ['collapse']}),
     ]
-    list_display = ('name', 'url', 'date_added', 'active')
+    list_display = ('id', 'name', 'url', 'date_added', 'active')
     list_filter = ('name',)
 
 
 # add some extra fields for gifs too
 class GifAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['name', 'url', 'active']}),
+        (None,               {'fields': ['gifsite', 'name', 'url', 'active']}),
         ('Date information', {'fields': ['date_added'], 'classes': ['collapse']}),
     ]
-    list_display = ('gifsite', 'name', 'url', 'date_added', 'active')
+    list_display = ('id', 'gifsite', 'name', 'url', 'date_added', 'active')
     list_filter = ('name',)
 
 
