@@ -11,7 +11,8 @@ def home(request):
     return render_to_response(
         'gifserver/home.html', {
             'gifsites': gif_sites,
-            'gifs': gifs
+            'gifs': gifs,
+            'page_title': 'home',
         }
     )
 
@@ -24,7 +25,8 @@ def gifsite(request, gifsite_slug):
     return render_to_response(
         'gifserver/gifsite.html', {
             'gifsite': gif_site,
-            'gifs': gifs
+            'gifs': gifs,
+            'page_title': 'gifsite',
         }
     )
 
@@ -34,6 +36,7 @@ def gif(request, gif_id):
     gif = get_object_or_404(Gif, pk=gif_id)
     return render_to_response(
         'gifserver/gif.html', {
-        'gif': gif
+        'gif': gif,
+        'page_title': 'gif',
         }
     )
