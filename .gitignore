@@ -7,3 +7,6 @@ venv
 
 # the sqlite database file
 db.sqlite
+
+# South migrations
+migrations
