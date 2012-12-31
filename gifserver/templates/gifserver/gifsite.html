@@ -1,0 +1,16 @@
+{% extends "gifserver/main.html"%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <p>hi, so these are all the gifs from {{ gifsite.name }}</p>
+
+        {% for gif in gifs %}
+            <div class="span2">
+                <p><a href="/gif/{{ gif.id }}"><img src="{{ gif.url }}"></a></p>
+                <p>{{ gif.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
