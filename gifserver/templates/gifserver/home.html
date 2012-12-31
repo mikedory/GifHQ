@@ -3,28 +3,32 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h2>Sites</h2>
-        <ul>
-            {% for gifsite in gifsites %}
+        <div class="span4">
+            <h2>Sites</h2>
             <ul>
+                {% for gifsite in gifsites %}
                 <li>{{ gifsite.name }}</li>
-                <li>{{ gifsite.url }}</li>
+                <ul>
+                    <li>{{ gifsite.name }}</li>
+                    <li>{{ gifsite.slug }}</li>
+                    <li>{{ gifsite.url }}</li>
+                </ul>
+                {% endfor %}
             </ul>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="row">
-        <h2>Gifs</h2>
-        <ul>
-            {% for gif in gifs %}
-            <li>{{ gif.name }}</li>
+        </div>
+        <div class="span4">
+            <h2>Gifs</h2>
             <ul>
-                <li>{{ gif.gifsite }}</li>
+                {% for gif in gifs %}
                 <li>{{ gif.name }}</li>
-                <li>{{ gif.url }}</li>
+                <ul>
+                    <li>{{ gif.gifsite }}</li>
+                    <li>{{ gif.name }}</li>
+                    <li>{{ gif.url }}</li>
+                </ul>
+                {% endfor %}
             </ul>
-            {% endfor %}
-        </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
