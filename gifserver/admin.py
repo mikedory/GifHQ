@@ -5,10 +5,10 @@ from django.contrib import admin
 # add some custom field handling for sites in the admin panel
 class GifsiteAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['name', 'url', 'active']}),
+        (None,               {'fields': ['name', 'slug', 'url', 'active']}),
         ('Date information', {'fields': ['date_added'], 'classes': ['collapse']}),
     ]
-    list_display = ('id', 'name', 'url', 'date_added', 'active')
+    list_display = ('id', 'name', 'slug', 'url', 'date_added', 'active')
     list_filter = ('name',)
 
 
