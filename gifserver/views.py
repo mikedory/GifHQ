@@ -36,8 +36,11 @@ def gifsites(request, gifsite_slug=False):
 
 
 # a specific gif
-def gifs(request, gif_id):
-    gif = get_object_or_404(Gif, pk=gif_id)
+def gifs(request, gif_id=False):
+    if gif_id:
+        gif = get_object_or_404(Gif, pk=gif_id)
+    else:
+        gif = None
     return render_to_response(
         'gifserver/gifs.html', {
         'gif': gif,

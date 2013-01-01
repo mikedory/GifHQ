@@ -3,8 +3,12 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        {% if gif %}
         <h2>{{ gif.name }}</h2>
         <p><img src="{{ gif.url }}" /></p>
+        {% else %}
+        <p>NO GIF</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
