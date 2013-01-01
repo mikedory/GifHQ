@@ -18,9 +18,13 @@ def home(request):
 
 
 # a specific gifsite
-def gifsite(request, gifsite_slug):
-    gif_site = get_object_or_404(Gifsite, slug=gifsite_slug)
-    gifs = Gif.objects.filter(gifsite=gif_site.id).order_by('-date_added')[:10]
+def gifsite(request, gifsite_slug=False):
+    if gifsite_slug:
+        gif_site = get_object_or_404(Gifsite, slug=gifsite_slug)
+        gifs = Gif.objects.filter(gifsite=gif_site.id).order_by('-date_added')[:10]
+    else:
+        gif_site = Gifsite.objects.all().order_by('-date_added')[:5],
+        gifs = False
 
     return render_to_response(
         'gifserver/gifsite.html', {
