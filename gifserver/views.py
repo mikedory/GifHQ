@@ -18,7 +18,7 @@ def home(request):
 
 
 # a specific gifsite
-def gifsite(request, gifsite_slug=False):
+def gifsites(request, gifsite_slug=False):
     if gifsite_slug:
         gif_site = get_object_or_404(Gifsite, slug=gifsite_slug)
         gifs = Gif.objects.filter(gifsite=gif_site.id).order_by('-date_added')[:10]
@@ -27,20 +27,20 @@ def gifsite(request, gifsite_slug=False):
         gifs = False
 
     return render_to_response(
-        'gifserver/gifsite.html', {
+        'gifserver/gifsites.html', {
             'gifsite': gif_site,
             'gifs': gifs,
-            'page_title': 'gifsite',
+            'page_title': 'gifsites',
         }
     )
 
 
 # a specific gif
-def gif(request, gif_id):
+def gifs(request, gif_id):
     gif = get_object_or_404(Gif, pk=gif_id)
     return render_to_response(
-        'gifserver/gif.html', {
+        'gifserver/gifs.html', {
         'gif': gif,
-        'page_title': 'gif',
+        'page_title': 'gifs',
         }
     )
