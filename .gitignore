@@ -10,3 +10,7 @@ db.sqlite
 
 # South migrations
 migrations
+
+# Static files
+gifhq/static/
+
