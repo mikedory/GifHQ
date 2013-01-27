@@ -14,3 +14,6 @@ migrations
 # Static files
 gifhq/static/
 
+# logs and pids
+*.log
+*.pid
