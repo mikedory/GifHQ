@@ -11,9 +11,13 @@ db.sqlite
 # South migrations
 migrations
 
-# Static files
+# static files
 gifhq/static/
 
 # logs and pids
 *.log
 *.pid
+
+# settings
+local_settings.py
+
