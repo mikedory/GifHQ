@@ -31,7 +31,7 @@ def commit():
 
 # push up to github
 def push():
-    local("git push")
+    local("git push origin master")
 
 
 def minify():
