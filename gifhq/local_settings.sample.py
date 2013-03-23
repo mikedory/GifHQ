@@ -7,5 +7,6 @@ env.hosts = ['domain.com']
 env.key_filename = '/path/to/.ssh/id_rsa'
 
 # deploy directory and repo info
-code_dir = '/path/to/code/directory'
-code_repo = 'git@gitrepo.com:user/GifHQ.git'
+code_dir_root = '/path/to/code/directory'
+code_dir_target = '/path/to/code/directory/target'
+code_repo = 'git@gitrepo.com:user/REPO.git'
