@@ -6,6 +6,7 @@ from fabric.contrib.console import confirm
 # import local_settings.py
 from gifhq.local_settings import *
 
+
 """
 Test and prepare everything locally
 
