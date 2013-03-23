@@ -23,7 +23,9 @@ def test():
 
 # add and commit all local files
 def commit():
-    local("git add -p && git commit")
+    commit = local("git add -p && git commit")
+    if commit.failed and not confirm("Add and commit failed. Proceed?"):
+        abort("Aborting!")
 
 
 # push up to github
