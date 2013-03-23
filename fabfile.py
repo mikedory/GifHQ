@@ -25,8 +25,8 @@ def test():
 def commit():
     with settings(warn_only=True):
         commit = local("git add -p && git commit")
-    if commit.failed and not confirm("Add and commit failed. Proceed?"):
-        abort("Aborting!")
+    if commit.failed:
+        print("Nothing to commit. Moving on.")
 
 
 # push up to github
