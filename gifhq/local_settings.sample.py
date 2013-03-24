@@ -10,3 +10,6 @@ env.key_filename = '/path/to/.ssh/id_rsa'
 code_dir_root = '/path/to/code/directory'
 code_dir_target = '/path/to/code/directory/target'
 code_repo = 'git@gitrepo.com:user/REPO.git'
+
+# how many hosts you want to handle concurrently
+pool_size = 5
