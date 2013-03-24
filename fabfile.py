@@ -8,7 +8,7 @@ from gifhq.local_settings import *
 
 
 """
-Test and prepare everything locally
+Test and prepare everything locally, commit files, and push to Github
 
 This leaves a placeholder for minification as well
 """
@@ -52,13 +52,16 @@ def prepare_deploy():
 Deploy to the remote server!
 
 For tags:
-    fab deploy:tag=YYYY-MM-DD-tag-description
+    fab env deploy:tag=YYYY-MM-DD-tag-description
 
 For branches:
     fab deploy:branch=master
 
-To target specific machines only:
-    fab deploy:tag=YYYY-MM-DD-tag-description
+So to deploy a tag to production, run:
+    fab prod deploy:tag=YYYY-MM-DD-tag-description
+
+And to deploy to a single server:
+    fab -u username -H domain.com -i /path/to/.ssh/id_rsa deploy:tag=YYYY-MM-DD-tag-description
 """
 
 
