@@ -56,16 +56,19 @@ For tags:
 
 For branches:
     fab deploy:branch=master
+
+To target specific machines only:
+    fab deploy:tag=YYYY-MM-DD-tag-description
 """
 
 
-def deploy(tag=None, branch=None):
+# drop the code off on the remote server
+def code_deploy(tag=None, branch=None):
 
     # when deploying by tag
     if tag is not None:
         # define where this is all going
         code_deploy_dir = code_dir_root + "/" + tag
-
         print "\n*** deploying %s to %s ***\n" % (tag, code_deploy_dir)
 
         # make the directory, deploy the code, and symlink it
@@ -79,8 +82,7 @@ def deploy(tag=None, branch=None):
 
     # when deploying by branch
     elif branch is not None:
-        # define where this is all going
-        code_deploy_dir = code_dir_target
+        print "\n*** deploying %s to %s ***\n" % (branch, code_dir_target)
 
         # test to make sure the repo exists
         with settings(warn_only=True):
@@ -96,8 +98,19 @@ def deploy(tag=None, branch=None):
     else:
         abort("like, seriously. you need a tag or a branch, brah.")
 
+    print "\n*** code deployed! ***\n"
+
+
+# restart the supervisor process
+def supervisor_restart():
     # restart processes and clean up
-    with cd(code_deploy_dir):
-        print "\n*** code deployed, restarting server ***\n"
-        run("supervisorctl restart gif")
-        print "\n*** done! ***\n"
+    print "\n*** restarting server ***\n"
+    run("supervisorctl restart gif")
+    print "\n*** done! ***\n"
+
+
+# run the code deploy, then restart the supervisor process
+@parallel(pool_size=pool_size)
+def deploy(tag=None, branch=None):
+    code_deploy(tag, branch)
+    supervisor_restart()
