@@ -69,7 +69,7 @@ def code_deploy(tag=None, branch=None):
     if tag is not None:
         # define where this is all going
         code_deploy_dir = code_dir_root + "/" + tag
-        print "\n*** deploying %s to %s ***\n" % (tag, code_deploy_dir)
+        print "*** deploying %s to %s ***" % (tag, code_deploy_dir)
 
         # make the directory, deploy the code, and symlink it
         run('mkdir -p %s' % code_deploy_dir)
@@ -82,7 +82,7 @@ def code_deploy(tag=None, branch=None):
 
     # when deploying by branch
     elif branch is not None:
-        print "\n*** deploying %s to %s ***\n" % (branch, code_dir_target)
+        print "*** deploying %s to %s ***" % (branch, code_dir_target)
 
         # test to make sure the repo exists
         with settings(warn_only=True):
@@ -98,15 +98,15 @@ def code_deploy(tag=None, branch=None):
     else:
         abort("like, seriously. you need a tag or a branch, brah.")
 
-    print "\n*** code deployed! ***\n"
+    print "*** code deployed! ***"
 
 
 # restart the supervisor process
 def supervisor_restart():
     # restart processes and clean up
-    print "\n*** restarting server ***\n"
+    print "*** restarting server ***"
     run("supervisorctl restart gif")
-    print "\n*** done! ***\n"
+    print "*** done! ***"
 
 
 # run the code deploy, then restart the supervisor process
