@@ -98,7 +98,7 @@ def code_deploy(tag=None, branch=None):
     else:
         abort("like, seriously. you need a tag or a branch, brah.")
 
-    print "*** code deployed! ***"
+    print "*** code deployed ***"
 
 
 # restart the supervisor process
@@ -106,7 +106,6 @@ def supervisor_restart():
     # restart processes and clean up
     print "*** restarting server ***"
     run("supervisorctl restart gif")
-    print "*** done! ***"
 
 
 # run the code deploy, then restart the supervisor process
